@@ -2,7 +2,7 @@
 
 fazerbackup() {
   clear
-  echo "Fazendo bakcup..."
+  echo "Fazendo backcup..."
   cd /root/PainelDT
   #rm -r painelbackup > /dev/null
   #mkdir painelbackup > /dev/null
@@ -12,8 +12,6 @@ fazerbackup() {
   mv painelbackup.zip /root
   echo
   echo "painelbackup.zip salvo em /root"
-  echo
-  exit 0
 }
 autobakcup() {
   clear
@@ -23,7 +21,6 @@ autobakcup() {
     backmod
     echo
     echo "Backup de 5 em 5 horas ativo!"
-    exit 0
   }
   menuop
 }
@@ -63,7 +60,6 @@ restaurarback() {
     pon
     echo
     echo "Backup restaurado com sucesso!"
-    exit 0
   }
   [[ $rapi = @(n|N) ]] && {
     echo "Voltando para o menu"
@@ -72,51 +68,65 @@ restaurarback() {
   }
   menuop
 }
+[[ $(netstat -nplt | grep -wc 'node') != '0' ]] && {
+			sks='LIGADO'
+		} || {
+			sks='DESLIGADO'
+		}
 #[[ ! -e /root/PainelDT/src/index.ts ]] && exit 0
 menuop() {
   clear
-  echo "Bem vindoª ao Menu PainelDT"
+  echo "   PainelDT - $sks"
   echo 
-  echo "1. Ligar painel"
-  echo "2. Reiniciar painel"
-  echo "3. Desligar painel"
+  echo "1. Ligar"
+  echo "2. Reiniciar"
+  echo "3. Desligar"
   echo "4. Fazer backup"
   echo "5. Restaurar backup"
   echo "6. Ativar Auto backup"
   echo "7. Remover painel"
   echo "0. Sair"
+  echo
   read -p "> " resp
   if [[ $resp = "1" ]]; then
     #statements
     clear
 	pon
 	echo "Painel ligado com sucesso!"
-    sleep 3
-    PainelDT
+    sleep 2
+    menuop
   elif [[ $resp = "2" ]]; then
     #statements
 	clear
     echo "Reiniciando..."
     pon
 	echo "Reiniciado com sucesso!"
-    sleep 3
-    PainelDT
+    sleep 2
+    menuop
   elif [[ $resp = "3" ]]; then
     #statements
 	clear
 	poff
 	echo "Painel desligado com sucesso!"
-    sleep 3
-    PainelDT
+    sleep 2
+    menuop
   elif [[ $resp = "4" ]]; then
     #statements
-    autobakcup
+    fazerbackup
+    echo "Backup feito com sucesso!"
+    sleep 2
+    menuop
   elif [[ $resp = "5" ]]; then
     #statements
     restaurarback
+    echo "Backup restaurado com sucesso!"
+    sleep 2
+    menuop
   elif [[ $resp = "6" ]]; then
     #statements
     autobakcup
+    sleep 2
+    menuop
   elif [[ $resp = "7" ]]; then
     #statements
     removerpainel
