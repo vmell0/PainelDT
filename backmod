@@ -9,7 +9,7 @@ cd /root
 mkdir backupAuto
 (crontab -l > /tmp/apiWaRes; echo "0 */5 * * * backmod" >> /tmp/apiWaRes; cat /tmp/apiWaRes) | crontab -
 }
-cd /root/DTMod
+cd /root/PainelDT
 
 cp prisma/database.db painelbackup
 cp .env painelbackup

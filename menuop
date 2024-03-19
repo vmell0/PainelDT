@@ -3,7 +3,7 @@
 fazerbackup() {
   clear
   echo "Fazendo bakcup..."
-  cd /root/DTMod
+  cd /root/PainelDT
   #rm -r painelbackup > /dev/null
   #mkdir painelbackup > /dev/null
   cp prisma/database.db painelbackup
@@ -34,7 +34,7 @@ removerpainel() {
     echo "Removendo..."
     poff
     rm /bin/pon /bin/poff /bin/menuop /bin/backmod
-    rm -r /root/DTMod
+    rm -r /root/PainelDT
     echo "Removido com sucesso!"
     exit 0
   }
@@ -50,14 +50,14 @@ restaurarback() {
   read -p "Deseja Restaurar o Backup? (s/n) " rapi
   [[ $rapi = @(s|S) ]] && {
     echo "Restaurando..."
-    cd /root/DTMod
+    cd /root/PainelDT
     rm prisma/database.db
     rm .env
     cd /root
     unzip painelbackup.zip
     cd painelbackup
-    mv database.db ../DTMod/prisma
-    mv .env ../DTMod
+    mv database.db ../PainelDT/prisma
+    mv .env ../PainelDT
     cd /root
     rm -r painelbackup
     pon
@@ -72,10 +72,10 @@ restaurarback() {
   }
   menuop
 }
-#[[ ! -e /root/DTMod/src/index.ts ]] && exit 0
+#[[ ! -e /root/PainelDT/src/index.ts ]] && exit 0
 menuop() {
   clear
-  echo "Bem vindoª ao Menu DTMod"
+  echo "Bem vindoª ao Menu PainelDT"
   echo 
   echo "1. Ligar painel"
   echo "2. Reiniciar painel"
@@ -92,7 +92,7 @@ menuop() {
 	pon
 	echo "Painel ligado com sucesso!"
     sleep 3
-    dtmod
+    PainelDT
   elif [[ $resp = "2" ]]; then
     #statements
 	clear
@@ -100,14 +100,14 @@ menuop() {
     pon
 	echo "Reiniciado com sucesso!"
     sleep 3
-    dtmod
+    PainelDT
   elif [[ $resp = "3" ]]; then
     #statements
 	clear
 	poff
 	echo "Painel desligado com sucesso!"
     sleep 3
-    dtmod
+    PainelDT
   elif [[ $resp = "4" ]]; then
     #statements
     autobakcup

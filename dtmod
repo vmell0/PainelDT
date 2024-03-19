@@ -3,7 +3,7 @@
 fazerbackup() {
   clear
   echo "Fazendo bakcup..."
-  cd /root/DTMod
+  cd /root/PainelDT
   #rm -r painelbackup > /dev/null
   #mkdir painelbackup > /dev/null
   cp prisma/database.db painelbackup
@@ -15,7 +15,7 @@ fazerbackup() {
   echo
   exit 0
  }
-  dtmod
+  PainelDT
 }
 autobakcup() {
   clear
@@ -27,7 +27,7 @@ autobakcup() {
     echo "Backup de 5 em 5 horas ativo!"
     exit 0
   }
-  dtmod
+  PainelDT
 }
 removerpainel() {
   clear
@@ -35,31 +35,31 @@ removerpainel() {
   [[ $rev = @(s|S) ]] && {
     echo "Removendo..."
     poff
-    rm /bin/pon /bin/poff /bin/dtmod /bin/backmod
-    rm -r /root/DTMod
+    rm /bin/pon /bin/poff /bin/PainelDT /bin/backmod
+    rm -r /root/PainelDT
     echo "Removido com sucesso!"
     exit 0
   }
-  dtmod
+  PainelDT
 }
 restaurarback() {
   clear
   [[ ! -e /root/painelbackup.zip ]] && {
     echo "Arquivo painelbackup.zip não encontrado em /root"
     sleep 4
-    dtmod
+    PainelDT
   }
   read -p "Deseja Restaurar o Backup? (s/n) " rapi
   [[ $rapi = @(s|S) ]] && {
     echo "Restaurando..."
-    cd /root/DTMod
+    cd /root/PainelDT
     rm prisma/database.db
     rm .env
     cd /root
     unzip painelbackup.zip
     cd painelbackup
-    mv database.db ../DTMod/prisma
-    mv .env ../DTMod
+    mv database.db ../PainelDT/prisma
+    mv .env ../PainelDT
     cd /root
     rm -r painelbackup
     pon
@@ -70,14 +70,14 @@ restaurarback() {
   [[ $rapi = @(n|N) ]] && {
     echo "Voltando para o menu"
     sleep 2
-    dtmod
+    PainelDT
   }
-  dtmod
+  PainelDT
 }
-#[[ ! -e /root/DTMod/src/index.ts ]] && exit 0
-dtmod() {
+#[[ ! -e /root/PainelDT/src/index.ts ]] && exit 0
+PainelDT() {
   clear
-  echo "Bem vindoª ao Menu DTMod"
+  echo "Bem vindoª ao Menu PainelDT"
   echo 
   echo "1. Ligar painel"
   echo "2. Reiniciar painel"
@@ -94,7 +94,7 @@ dtmod() {
 	pon
 	echo "Painel ligado com sucesso!"
     sleep 3
-    dtmod
+    PainelDT
   elif [[ $resp = "2" ]]; then
     #statements
 	clear
@@ -102,14 +102,14 @@ dtmod() {
     pon
 	echo "Reiniciado com sucesso!"
     sleep 3
-    dtmod
+    PainelDT
   elif [[ $resp = "3" ]]; then
     #statements
 	clear
 	poff
 	echo "Painel desligado com sucesso!"
     sleep 3
-    dtmod
+    PainelDT
   elif [[ $resp = "4" ]]; then
     #statements
     autobakcup
@@ -130,7 +130,7 @@ dtmod() {
     echo "Opção inválida!"
     sleep 3
     clear
-    dtmod
+    PainelDT
   fi
 }
-dtmod
+PainelDT
