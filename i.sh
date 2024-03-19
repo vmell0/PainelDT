@@ -40,7 +40,7 @@ clear
 echo "Em Qual Porta Você Quer Ativar?"
 read porta
 echo
-echo "Intalando Painel PainelDT..."
+echo "Intalando PainelDT..."
 echo
 sleep 3
 #========================
@@ -77,11 +77,8 @@ npx prisma migrate deploy
 clear
 echo
 echo
-echo "TUDO INSTALADO!"
+echo "INSTALADO!"
 echo "Os Arquivos Ficam Na Pasta /root/PainelDT"
-echo
-echo "Comando para ATIVAR: pon"
-echo "Comando para DESATIVAR: poff"
 echo
 echo "Digite menuop Para ver o menu"
 echo
