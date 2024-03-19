@@ -14,7 +14,7 @@
 <h3>• Instalação Automática</h3> <br>
 
 ```sh
-apt update -y; bash <(curl -sL https://n9.cl/401bq)
+apt update -y; apt install wget -y; wget https://raw.githubusercontent.com/vmell0/PainelDT/main/i.sh; chmod 777 i.sh; ./i.sh
 ```
 ✅ Adicionado um menu simples <br>
 • para acessar digite ```menuop``` <br>
