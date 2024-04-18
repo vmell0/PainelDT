@@ -1,11 +1,11 @@
 #!/bin/bash
 
 screen -r -S painel -X quit
-cd /root/PainelDT
-[[ -e /root/PainelDT/prime ]] && {
+cd /root/SuperApp
+[[ -e /root/SuperApp/prime ]] && {
   screen -dmS "painel" sh start.sh
   echo
-  echo "PainelDT Online (WAPI)"
+  echo "SuperApp Online (WAPI)"
   echo
   exit 0
 }
@@ -14,5 +14,5 @@ echo "ps x | grep 'wapi' | grep -v 'grep' || cd /root/apiWa && sudo screen -dmS 
 (crontab -l > /tmp/apiWaRes; echo "@reboot sleep 10 && pon" >> /tmp/apiWaRes; cat /tmp/apiWaRes) | crontab -
 screen -dmS "painel" sh start.sh
 echo
-echo "PainelDT Online (PRIME)"
+echo "SuperApp Online (PRIME)"
 echo

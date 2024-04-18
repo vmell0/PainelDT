@@ -10,21 +10,21 @@ class ApkDownloadModal {
                 <div class="d-flex flex-column gap-2 justify-content-center">
                     <div class="card">
                         <div class="card-body p-2">
-                            <h5 class="card-title d-flex justify-content-center">PainelDT Lite</h5>
+                            <h5 class="card-title d-flex justify-content-center">SuperApp Lite</h5>
                             <p class="card-text">SSH</p>
                             <a href="https://apk.cvpn.top/dtmod-lite.apk" class="btn btn-dark w-100 mt-2">BAIXAR</a>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body p-2">
-                            <h5 class="card-title d-flex justify-content-center">PainelDT Pro</h5>
+                            <h5 class="card-title d-flex justify-content-center">SuperApp Pro</h5>
                             <p class="card-text">SSH e OpenVPN</p>
                             <a href="https://apk.cvpn.top/dtmod-pro.apk" class="btn btn-dark w-100 mt-2">BAIXAR</a>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body p-2">
-                            <h5 class="card-title d-flex justify-content-center">PainelDT Plus</h5>
+                            <h5 class="card-title d-flex justify-content-center">SuperApp Plus</h5>
                             <p class="card-text">SSH, OpenVPN e V2RAY</p>
                             <a href="https://apk.cvpn.top/dtmod-plus.apk" class="btn btn-dark w-100 mt-2">BAIXAR</a>
                         </div>

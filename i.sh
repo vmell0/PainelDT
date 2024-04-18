@@ -17,19 +17,19 @@ echo
 rm /root/i.sh
 exit 0
 }
-[[ -e /root/PainelDT/src/index.ts ]] && {
+[[ -e /root/SuperApp/src/index.ts ]] && {
   clear
   echo "O Painel já está instalado, deseja remover? (s/n)"
   read remo
   [[ $remo = @(s|S) ]] && {
-  cd /root/PainelDT
+  cd /root/SuperApp
   rm -r painelbackup > /dev/null
   mkdir painelbackup > /dev/null
   cp prisma/database.db painelbackup
   cp .env painelbackup
   zip -r painelbackup.zip painelbackup
   mv painelbackup.zip /root
-  rm -r /root/PainelDT
+  rm -r /root/SuperApp
   rm /root/i.sh
   echo "Removido com sucesso!"
   exit 0
@@ -40,7 +40,7 @@ clear
 echo "Em Qual Porta Você Quer Ativar?"
 read porta
 echo
-echo "Intalando PainelDT..."
+echo "Intalando SuperApp..."
 echo
 sleep 3
 #========================
@@ -56,8 +56,8 @@ apt install git -y
 curl -fsSL https://deb.nodesource.com/setup_20.x | bash
 apt-get install -y nodejs -y
 #=========================
-git clone https://github.com/vmell0/PainelDT.git
-cd /root/PainelDT
+git clone https://github.com/vmell0/SuperApp.git
+cd /root/SuperApp
 chmod 777 pon poff menuop backmod
 mv pon poff menuop backmod /bin
 echo "PORT=$porta" > .env
@@ -78,7 +78,7 @@ clear
 echo
 echo
 echo "INSTALADO!"
-echo "Os Arquivos Ficam Na Pasta /root/PainelDT"
+echo "Os Arquivos Ficam Na Pasta /root/SuperApp"
 echo
 echo "Digite menuop Para ver o menu"
 echo

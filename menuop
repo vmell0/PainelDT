@@ -3,7 +3,7 @@
 fazerbackup() {
   clear
   echo "Fazendo backcup..."
-  cd /root/PainelDT
+  cd /root/SuperApp
   #rm -r painelbackup > /dev/null
   #mkdir painelbackup > /dev/null
   cp prisma/database.db painelbackup
@@ -31,7 +31,7 @@ removerpainel() {
     echo "Removendo..."
     poff
     rm /bin/pon /bin/poff /bin/menuop /bin/backmod
-    rm -r /root/PainelDT
+    rm -r /root/SuperApp
     echo "Removido com sucesso!"
     exit 0
   }
@@ -47,14 +47,14 @@ restaurarback() {
   read -p "Deseja Restaurar o Backup? (s/n) " rapi
   [[ $rapi = @(s|S) ]] && {
     echo "Restaurando..."
-    cd /root/PainelDT
+    cd /root/SuperApp
     rm prisma/database.db
     rm .env
     cd /root
     unzip painelbackup.zip
     cd painelbackup
-    mv database.db ../PainelDT/prisma
-    mv .env ../PainelDT
+    mv database.db ../SuperApp/prisma
+    mv .env ../SuperApp
     cd /root
     rm -r painelbackup
     pon
@@ -73,10 +73,10 @@ restaurarback() {
 		} || {
 			sks='DESLIGADO'
 		}
-#[[ ! -e /root/PainelDT/src/index.ts ]] && exit 0
+#[[ ! -e /root/SuperApp/src/index.ts ]] && exit 0
 menuop() {
   clear
-  echo "   PainelDT - $sks"
+  echo "   SuperApp - $sks"
   echo 
   echo "1. Ligar"
   echo "2. Reiniciar"
@@ -92,6 +92,8 @@ menuop() {
     #statements
     clear
 	pon
+	sudo systemctl enable SuperApp.service && sudo systemctl start SuperApp.service
+	echo ""
 	echo "Painel ligado com sucesso!"
     sleep 2
     menuop
@@ -107,6 +109,8 @@ menuop() {
     #statements
 	clear
 	poff
+	sudo systemctl disable --now SuperApp.service && sudo systemctl stop SuperApp.service && sudo systemctl daemon-reload
+	echo ""
 	echo "Painel desligado com sucesso!"
     sleep 2
     menuop
@@ -129,6 +133,7 @@ menuop() {
     menuop
   elif [[ $resp = "7" ]]; then
     #statements
+	sudo systemctl disable --now SuperApp.service && sudo systemctl stop SuperApp.service && sudo systemctl daemon-reload
     removerpainel
   elif [[ $resp = "0" ]]; then
     #statements
