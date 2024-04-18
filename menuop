@@ -3,7 +3,7 @@
 fazerbackup() {
   clear
   echo "Fazendo backcup..."
-  cd /root/SuperApp
+  cd /root/PainelDT
   #rm -r painelbackup > /dev/null
   #mkdir painelbackup > /dev/null
   cp prisma/database.db painelbackup
@@ -31,7 +31,7 @@ removerpainel() {
     echo "Removendo..."
     poff
     rm /bin/pon /bin/poff /bin/menuop /bin/backmod
-    rm -r /root/SuperApp
+    rm -r /root/PainelDT
     echo "Removido com sucesso!"
     exit 0
   }
@@ -47,14 +47,14 @@ restaurarback() {
   read -p "Deseja Restaurar o Backup? (s/n) " rapi
   [[ $rapi = @(s|S) ]] && {
     echo "Restaurando..."
-    cd /root/SuperApp
+    cd /root/PainelDT
     rm prisma/database.db
     rm .env
     cd /root
     unzip painelbackup.zip
     cd painelbackup
-    mv database.db ../SuperApp/prisma
-    mv .env ../SuperApp
+    mv database.db ../PainelDT/prisma
+    mv .env ../PainelDT
     cd /root
     rm -r painelbackup
     pon
@@ -73,10 +73,10 @@ restaurarback() {
 		} || {
 			sks='DESLIGADO'
 		}
-#[[ ! -e /root/SuperApp/src/index.ts ]] && exit 0
+#[[ ! -e /root/PainelDT/src/index.ts ]] && exit 0
 menuop() {
   clear
-  echo "   SuperApp - $sks"
+  echo "   PainelDT - $sks"
   echo 
   echo "1. Ligar"
   echo "2. Reiniciar"
@@ -92,7 +92,7 @@ menuop() {
     #statements
     clear
 	pon
-	sudo systemctl enable SuperApp.service && sudo systemctl start SuperApp.service
+	sudo systemctl enable PainelDT.service && sudo systemctl start PainelDT.service
 	echo ""
 	echo "Painel ligado com sucesso!"
     sleep 2
@@ -109,7 +109,7 @@ menuop() {
     #statements
 	clear
 	poff
-	sudo systemctl disable --now SuperApp.service && sudo systemctl stop SuperApp.service && sudo systemctl daemon-reload
+	sudo systemctl disable --now PainelDT.service && sudo systemctl stop PainelDT.service && sudo systemctl daemon-reload
 	echo ""
 	echo "Painel desligado com sucesso!"
     sleep 2
@@ -133,7 +133,7 @@ menuop() {
     menuop
   elif [[ $resp = "7" ]]; then
     #statements
-	sudo systemctl disable --now SuperApp.service && sudo systemctl stop SuperApp.service && sudo systemctl daemon-reload
+	sudo systemctl disable --now PainelDT.service && sudo systemctl stop PainelDT.service && sudo systemctl daemon-reload
     removerpainel
   elif [[ $resp = "0" ]]; then
     #statements

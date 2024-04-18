@@ -2,5 +2,5 @@
 
 screen -r -S painel -X quit
 echo
-echo "SuperApp off"
+echo "PainelDT off"
 echo
