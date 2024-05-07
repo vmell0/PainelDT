@@ -12,21 +12,21 @@ class ApkDownloadModal {
                         <div class="card-body p-2">
                             <h5 class="card-title d-flex justify-content-center">Vesão Lite</h5>
                             <p class="card-text">SSH</p>
-                            <a href="https://cvpn.top/app/app-lite.apk" class="btn btn-dark w-100 mt-2">BAIXAR</a>
+                            <a href="https://n9.cl/paineldt-lite" class="btn btn-dark w-100 mt-2">BAIXAR</a>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body p-2">
                             <h5 class="card-title d-flex justify-content-center">Versão Pro</h5>
                             <p class="card-text">SSH e OpenVPN</p>
-                            <a href="https://cvpn.top/app/app-pro.apk" class="btn btn-dark w-100 mt-2">BAIXAR</a>
+                            <a href="https://n9.cl/paineldt-pro" class="btn btn-dark w-100 mt-2">BAIXAR</a>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-body p-2">
                             <h5 class="card-title d-flex justify-content-center">Versão Plus</h5>
                             <p class="card-text">SSH, OpenVPN e V2RAY</p>
-                            <a href="https://cvpn.top/app/app-plus.apk" class="btn btn-dark w-100 mt-2">BAIXAR</a>
+                            <a href="https://n9.cl/paineldt-plus" class="btn btn-dark w-100 mt-2">BAIXAR</a>
                         </div>
                     </div>
                 </div>
