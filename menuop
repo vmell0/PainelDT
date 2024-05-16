@@ -92,7 +92,7 @@ menuop() {
     #statements
     clear
 	pon
-	sudo systemctl enable PainelDT.service && sudo systemctl start PainelDT.service
+	sudo systemctl enable paineldt.service && sudo systemctl start paineldt.service
 	echo ""
 	echo "Painel ligado com sucesso!"
     sleep 2
@@ -109,7 +109,7 @@ menuop() {
     #statements
 	clear
 	poff
-	sudo systemctl disable --now PainelDT.service && sudo systemctl stop PainelDT.service && sudo systemctl daemon-reload
+	sudo systemctl disable --now paineldt.service && sudo systemctl stop paineldt.service && sudo systemctl daemon-reload
 	echo ""
 	echo "Painel desligado com sucesso!"
     sleep 2
@@ -133,7 +133,7 @@ menuop() {
     menuop
   elif [[ $resp = "7" ]]; then
     #statements
-	sudo systemctl disable --now PainelDT.service && sudo systemctl stop PainelDT.service && sudo systemctl daemon-reload
+	sudo systemctl disable --now paineldt.service && sudo systemctl stop paineldt.service && sudo systemctl daemon-reload
     removerpainel
   elif [[ $resp = "0" ]]; then
     #statements
