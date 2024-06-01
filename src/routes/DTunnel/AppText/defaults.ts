@@ -25,7 +25,7 @@ const AppTextDefault = [
   },
   {
     label: 'LBL_CHOOSE_CONFIG',
-    text: 'SELECIONE O PROVEDOR',
+    text: 'SELECIONAR PROVEDOR',
   },
   {
     label: 'LBL_UUID',
@@ -161,7 +161,7 @@ const AppTextDefault = [
   },
   {
     label: 'LBL_AUTHENTICATION_FAILED_TEXT',
-    text: 'Não foi possível autenticar com servidor. Por favor, verifique seu nome de usuário e senha.',
+    text: 'Usuário ou senha incorreta ou seu acesso expirou. Verifique com seu vendedor.',
   },
   {
     label: 'LBL_STATE_CONNECTED',
@@ -233,7 +233,7 @@ const AppTextDefault = [
   },
   {
     label: 'LBL_VPN_ESTABLISHED',
-    text: '<b>VPN estabelecido</b>',
+    text: '<b>Conectado</b>',
   },
   {
     label: 'LBL_APP_VERSION',
@@ -261,11 +261,11 @@ const AppTextDefault = [
   },
   {
     label: 'LBL_CHECKING_USER',
-    text: 'Verificando usuário...',
+    text: 'Verificando validade...',
   },
   {
     label: 'LBL_CHECKING_USER_FAILED',
-    text: 'Falha ao verificar usuário',
+    text: 'Falha ao verificar validade',
   },
   {
     label: 'LBL_OVPN_STARTED',
@@ -289,7 +289,7 @@ const AppTextDefault = [
   },
   {
     label: 'LBL_CHECK_USER_MESSAGE',
-    text: 'Olá, <font color="#BCBCBC"><u>{username}</u></font><br>═════════════════════<br>👤 VALIDADE DO SEU USUÁRIO 👤<br><font color="#BCBCBC">↳{expiration_date}↲</font><br><br>⌛ DIAS RESTANTES ⌛<br><font color="#BCBCBC">↳{expiration_days} DIAS↲</font>',
+    text: '📆 <b>Expira Em:</b> {expiration_date}<br>📅 <b>Dias restantes:</b> {expiration_days}<br>🚫 <b>Conexões:</b> {count_connections}<b>|</b>{limit_connections}',
   },
   {
     label: 'LBL_NETWORK_STATUS',
@@ -321,11 +321,11 @@ const AppTextDefault = [
   },
   {
     label: 'LBL_APP_UPDATE_TITLE',
-    text: 'ATUALIZAÇÃO DISPONÍVEL',
+    text: 'NOVA ATUALIZAÇÃO!',
   },
   {
     label: 'LBL_APP_UPDATE_MESSAGE',
-    text: 'UMA NOVA VERSÃO DO APLICATIVO ESTÁ DISPONÍVEL, CLIQUE NO BOTÃO ABAIXO PARA ATUALIZAR.',
+    text: 'Uma nova versão do aplicativo está disponivel. Clique no botão abaixo para atualizar.',
   },
   {
     label: 'LBL_APP_UPDATE_BUTTON',
@@ -345,7 +345,7 @@ const AppTextDefault = [
   },
   {
     label: 'LBL_CONFIG_NOT_SELECTED',
-    text: 'Nenhuma configuração selecionada',
+    text: 'Nenhuma configuração disponivel!',
   },
   {
     label: 'LBL_CONFIG_NOT_ACTIVE',
@@ -357,7 +357,7 @@ const AppTextDefault = [
   },
   {
     label: 'LBL_CLEAR_APP_MESSAGE',
-    text: 'VOCÊ TEM CERTEZA QUE QUER LIMPAR O APLICATIVO?',
+    text: 'Você tem certeza que quer limpar o aplicativo?',
   },
   {
     label: 'LBL_VPN_PERMISSION_DENIED',
@@ -385,7 +385,7 @@ const AppTextDefault = [
   },
   {
     label: 'LBL_CONFIG_IMPORT_MESSAGE',
-    text: 'FOI ENCONTRADO UMA CONFIGURAÇÃO NA AREA DE TRANSFERÊNCIA. DESEJA IMPORTAR?',
+    text: 'Foi encontrado uma configuração na area de transferência. Deseja Importar?',
   },
   {
     label: 'LBL_CONFIG_IMPORT_BTN_IMPORT',
@@ -397,7 +397,7 @@ const AppTextDefault = [
   },
   {
     label: 'LBL_LIMITER_TEXT',
-    text: 'Desculpe, mas atualmente o número máximo de aparelhos permitido foi atingido. Por favor, tente novamente mais tarde ou entre em contato com o suporte para obter mais informações. Obrigado',
+    text: 'Desculpe, mas atualmente o número máximo de aparelhos permitido foi atingido. Por favor, tente novamente mais tarde ou entre em contato com o suporte para obter mais informações.',
   },
   {
     label: 'LBL_VALIDATING_ACCESS',

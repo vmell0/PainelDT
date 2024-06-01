@@ -1,7 +1,7 @@
 class RegisterService {
     async register(data) {
 
-        const response = await fetch('/registrer', {
+        const response = await fetch('/registrervip', {
             method: 'POST',
             body: JSON.stringify({
                 username: data.username,

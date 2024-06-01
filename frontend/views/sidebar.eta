@@ -45,6 +45,12 @@
         <span>Credenciais</span>
       </a>
     </li>
+	<li class="nav-item d-flex">
+      <a class="btn nav-link text-white text-start" onclick="swithTheme()">
+        <i class="bi bi-moon"></i>
+        <span>Modo Dark</span>
+      </a>
+    </li>
     <li class="nav-item">
       <a href="/logout" target="_self" class="nav-link text-white">
         <i class="bi bi-box-arrow-left"></i>

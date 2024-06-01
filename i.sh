@@ -19,7 +19,7 @@ exit 0
 }
 [[ -e /root/PainelDT/src/index.ts ]] && {
   clear
-  echo "O Painel já está instalado, deseja remover? (s/n)"
+  echo "O PainelDT já está instalado, deseja remover? (s/n)"
   read remo
   [[ $remo = @(s|S) ]] && {
   cd /root/PainelDT

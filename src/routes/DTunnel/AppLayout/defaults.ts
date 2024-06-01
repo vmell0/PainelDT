@@ -1,4 +1,4 @@
-export const MAX_LAYOUT_PERMITTED = 5;
+export const MAX_LAYOUT_PERMITTED = 10;
 
 export const AppLayoutDefault = [
   {
@@ -6,7 +6,7 @@ export const AppLayoutDefault = [
     name: 'APP_NAME',
     status: 'ACTIVE',
     type: 'STRING',
-    value: 'DTunnel Mod',
+    value: null,
   },
   {
     label: 'Logo do app',

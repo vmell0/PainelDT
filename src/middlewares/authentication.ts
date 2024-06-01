@@ -13,7 +13,7 @@ interface IJwtPayload {
 export default class Authentication {
   private static redirect(req: FastifyRequest, reply: FastifyReply) {
     CookieManager.deleteCookiesLoggedIn(reply);
-    const routesNotAuthorized = ['/login', '/registrer'];
+    const routesNotAuthorized = ['/login', '/registrervip'];
     const route = routesNotAuthorized.find((route) => route === req.routeOptions.config.url);
     if (!route) {
       reply.redirect('/login');

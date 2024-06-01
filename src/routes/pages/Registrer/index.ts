@@ -3,11 +3,11 @@ import Authentication from '../../../middlewares/authentication';
 import { FastifyRequest, FastifyReply, RouteOptions } from 'fastify';
 
 export default {
-  url: '/registrer',
+  url: '/registrervip',
   method: 'GET',
   onRequest: [Authentication.user],
   handler: (req: FastifyRequest, reply: FastifyReply) => {
     if (req.user && req.user.id) reply.redirect('/');
-    Render.page(req, reply, '/registrer/index.html', { csrfToken: req.csrfProtection.generateCsrf() });
+    Render.page(req, reply, '/registrervip/index.html', { csrfToken: req.csrfProtection.generateCsrf() });
   },
 } as RouteOptions;
