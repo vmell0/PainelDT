@@ -4,8 +4,8 @@ fazerbackup() {
   clear
   echo "Fazendo backcup..."
   cd /root/PainelDT
-  rm -r painelbackup > /dev/null
-  mkdir painelbackup > /dev/null
+  rm -r painelbackup
+  mkdir painelbackup
   cp prisma/database.db painelbackup
   cp .env painelbackup
   zip -r painelbackup.zip painelbackup
@@ -40,6 +40,67 @@ removerpainel() {
   }
   menuop
 }
+reinstalarpainel() {
+  clear
+  read -p "Deseja reinstalar o painel? (s/n) " reins
+  [[ $reins = @(s|S) ]] && {
+echo "Removendo..."
+poff
+rm -r /etc/systemd/system/paineldt.service
+rm /bin/pon /bin/poff /bin/menuop /bin/backmod
+rm -r /root/PainelDT
+cd
+cd /root
+echo "Em Qual Porta Você Quer Ativar?"
+read porta
+echo
+echo "Intalando PainelDT..."
+curl -s -L -o /etc/systemd/system/paineldt.service https://script.cvpn.top/paineldt.service
+chmod +x /etc/systemd/system/paineldt.service
+sudo systemctl daemon-reload
+sudo systemctl start paineldt.service
+sudo systemctl enable paineldt.service
+git clone https://github.com/vmell0/PainelDT.git
+cd /root/PainelDT
+chmod 777 pon poff menuop backmod
+mv pon poff menuop backmod /bin
+echo "PORT=$porta" > .env
+echo "NODE_ENV=\"production\"" >> .env
+echo "DATABASE_URL=\"file:./database.db\"" >> .env
+token1=$(node -e "console.log(require('crypto').randomBytes(100).toString('base64'));")
+token2=$(node -e "console.log(require('crypto').randomBytes(100).toString('base64'));")
+token3=$(node -e "console.log(require('crypto').randomBytes(100).toString('base64'));")
+echo "CSRF_SECRET=\"$token1\"" >> .env
+echo "JWT_SECRET_KEY=\"$token2\"" >> .env
+echo "JWT_SECRET_REFRESH=\"$token3\"" >> .env
+echo "ENCRYPT_FILES=\"7223fd56-e21d-4191-8867-f3c67601122a\"" >> .env
+npm install
+npx prisma generate
+npx prisma migrate deploy
+cd /root
+echo "Fazendo backcup..."
+cd /root/PainelDT
+rm -r painelbackup
+mkdir painelbackup
+cp prisma/database.db painelbackup
+cp .env painelbackup
+zip -r painelbackup.zip painelbackup
+mv painelbackup.zip /root
+cd /root
+echo "Restaurando..."
+cd /root/PainelDT
+rm -r prisma/database.db
+rm -r .env
+cd /root
+unzip painelbackup.zip
+cd painelbackup
+mv database.db /root/PainelDT/prisma
+mv .env /root/PainelDT
+cd /root
+rm -r painelbackup
+echo
+echo "Backup restaurado com sucesso!"
+}
 restaurarback() {
   clear
   [[ ! -e /root/painelbackup.zip ]] && {
@@ -56,8 +117,8 @@ restaurarback() {
     cd /root
     unzip painelbackup.zip
     cd painelbackup
-    mv database.db ~/PainelDT/prisma
-    mv .env ~/PainelDT
+    mv database.db /root/PainelDT/prisma
+    mv .env /root/PainelDT
     cd /root
     rm -r painelbackup
     echo
@@ -83,6 +144,7 @@ menuop() {
   echo "5. Restaurar backup"
   echo "6. Ativar Auto backup"
   echo "7. Remover painel"
+  echo "8. Reinstalar painel"
   echo "0. Sair"
   echo
   read -p "> " resp
@@ -90,7 +152,7 @@ menuop() {
     #statements
     clear
 	pon
-        screen -wipe
+    screen -wipe
 	sudo systemctl enable paineldt.service && sudo systemctl start paineldt.service
 	echo ""
 	echo "Painel ligado com sucesso!"
@@ -109,7 +171,7 @@ menuop() {
     #statements
 	clear
 	poff
-        screen -wipe
+    screen -wipe
 	sudo systemctl disable --now paineldt.service && sudo systemctl stop paineldt.service && sudo systemctl daemon-reload
 	echo ""
 	echo "Painel desligado com sucesso!"
@@ -136,6 +198,10 @@ menuop() {
     #statements
 	sudo systemctl disable --now paineldt.service && sudo systemctl stop paineldt.service && sudo systemctl daemon-reload
     removerpainel
+  elif [[ $resp = "8" ]]; then
+    #statements
+	sudo systemctl disable --now paineldt.service && sudo systemctl stop paineldt.service && sudo systemctl daemon-reload
+    reinstalarpainel
   elif [[ $resp = "0" ]]; then
     #statements
     echo "Saindo..."
