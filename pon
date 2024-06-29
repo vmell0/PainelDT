@@ -1,6 +1,7 @@
 #!/bin/bash
 
 screen -r -S painel -X quit
+screen -r -S *.painel -X quit
 cd /root/PainelDT
 [[ -e /root/PainelDT/prime ]] && {
   screen -dmS "painel" sh start.sh

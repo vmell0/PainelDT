@@ -289,7 +289,7 @@ const AppTextDefault = [
   },
   {
     label: 'LBL_CHECK_USER_MESSAGE',
-    text: '📆 <b>Expira Em:</b> {expiration_date}<br>📅 <b>Dias restantes:</b> {expiration_days}<br>🚫 <b>Conexões:</b> {count_connections}<b>|</b>{limit_connections}',
+    text: '<i>📆| <b>Vence Em:</b> {expiration_date}<br>⏳| <b>Tempo:</b> {expiration_days} dia's<br>📲| <b>Limite:</b> {limit_connections}<br>✅| <b>Conectado:</b> {count_connections}<br><br><b>Renove sempre 1 dia antes do vencimento!</b></i>',
   },
   {
     label: 'LBL_NETWORK_STATUS',
@@ -397,7 +397,7 @@ const AppTextDefault = [
   },
   {
     label: 'LBL_LIMITER_TEXT',
-    text: 'Desculpe, mas atualmente o número máximo de aparelhos permitido foi atingido. Por favor, tente novamente mais tarde ou entre em contato com o suporte para obter mais informações.',
+    text: '<i>Desculpe, mas atualmente o número máximo de aparelhos foi atingido. Por favor, entre em contato com o suporte para obter mais informações.</i>',
   },
   {
     label: 'LBL_VALIDATING_ACCESS',

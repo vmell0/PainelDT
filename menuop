@@ -4,8 +4,8 @@ fazerbackup() {
   clear
   echo "Fazendo backcup..."
   cd /root/PainelDT
-  #rm -r painelbackup > /dev/null
-  #mkdir painelbackup > /dev/null
+  rm -r painelbackup > /dev/null
+  mkdir painelbackup > /dev/null
   cp prisma/database.db painelbackup
   cp .env painelbackup
   zip -r painelbackup.zip painelbackup
@@ -57,7 +57,6 @@ restaurarback() {
     mv .env ../PainelDT
     cd /root
     rm -r painelbackup
-    pon
     echo
     echo "Backup restaurado com sucesso!"
   }
@@ -68,15 +67,10 @@ restaurarback() {
   }
   menuop
 }
-[[ $(netstat -nplt | grep -wc 'node') != '0' ]] && {
-			sks='LIGADO'
-		} || {
-			sks='DESLIGADO'
-		}
 #[[ ! -e /root/PainelDT/src/index.ts ]] && exit 0
 menuop() {
   clear
-  echo "   PainelDT - $sks"
+  echo "  Gestor PainelDT"
   echo 
   echo "1. Ligar"
   echo "2. Reiniciar"
