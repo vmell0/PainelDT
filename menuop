@@ -98,13 +98,14 @@ restaurarback() {
     cd /root
     unzip painelbackup.zip
     cd painelbackup
-    mv database.db /root/PainelDT/prisma
-    mv .env /root/PainelDT
+    mv database.db ../PainelDT/prisma
+    mv .env ../PainelDT
     cd /root
     rm -r painelbackup
+    pon
     echo
     echo "Backup restaurado com sucesso!"
-    sleep 4
+    exit 0
   }
   [[ $rapi = @(n|N) ]] && {
     echo "Voltando para o menu"
