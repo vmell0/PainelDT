@@ -114,6 +114,15 @@ restaurarback() {
   }
   menuop
 }
+alterarporta() {
+echo "Em Qual Porta Você Quer Ativar?:"
+read porta
+echo "PORT=$porta" > /root/PainelDT/.env
+echo
+echo "Porta alterada com sucesso!"
+sleep 4
+menuop
+}
 #[[ ! -e /root/PainelDT/src/index.ts ]] && exit 0
 menuop() {
   clear
@@ -127,6 +136,7 @@ menuop() {
   echo "6. Ativar Auto backup"
   echo "7. Remover painel"
   echo "8. Reinstalar painel"
+  echo "9. Altear Porta"
   echo "0. Sair"
   echo
   read -p "> " resp
@@ -184,6 +194,9 @@ menuop() {
     #statements
 	sudo systemctl disable --now paineldt.service && sudo systemctl stop paineldt.service && sudo systemctl daemon-reload
     reinstalarpainel
+  elif [[ $resp = "9" ]]; then
+    #statements
+	alterarporta
   elif [[ $resp = "0" ]]; then
     #statements
     echo "Saindo..."
