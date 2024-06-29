@@ -4,14 +4,15 @@ fazerbackup() {
   clear
   echo "Fazendo backcup..."
   cd /root/PainelDT
-  #rm -r painelbackup > /dev/null
-  #mkdir painelbackup > /dev/null
+  rm -r painelbackup > /dev/null
+  mkdir painelbackup > /dev/null
   cp prisma/database.db painelbackup
   cp .env painelbackup
   zip -r painelbackup.zip painelbackup
   mv painelbackup.zip /root
   echo
   echo "painelbackup.zip salvo em /root"
+  sleep 4
 }
 autobakcup() {
   clear
@@ -21,6 +22,7 @@ autobakcup() {
     backmod
     echo
     echo "Backup de 5 em 5 horas ativo!"
+    sleep 4
   }
   menuop
 }
@@ -33,6 +35,7 @@ removerpainel() {
     rm /bin/pon /bin/poff /bin/menuop /bin/backmod
     rm -r /root/PainelDT
     echo "Removido com sucesso!"
+    sleep 4
     exit 0
   }
   menuop
@@ -48,17 +51,18 @@ restaurarback() {
   [[ $rapi = @(s|S) ]] && {
     echo "Restaurando..."
     cd /root/PainelDT
-    rm prisma/database.db
-    rm .env
+    rm -r prisma/database.db
+    rm -r .env
     cd /root
     unzip painelbackup.zip
     cd painelbackup
-    mv database.db ../PainelDT/prisma
-    mv .env ../PainelDT
+    mv database.db ~/PainelDT/prisma
+    mv .env ~/PainelDT
     cd /root
     rm -r painelbackup
     echo
     echo "Backup restaurado com sucesso!"
+    sleep 4
   }
   [[ $rapi = @(n|N) ]] && {
     echo "Voltando para o menu"
