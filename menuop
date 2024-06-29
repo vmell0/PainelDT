@@ -78,29 +78,9 @@ echo "ENCRYPT_FILES=\"7223fd56-e21d-4191-8867-f3c67601122a\"" >> .env
 npm install
 npx prisma generate
 npx prisma migrate deploy
-cd /root
-[[ ! -e /root/painelbackup.zip ]] && {
-    echo "Arquivo painelbackup.zip não encontrado em /root"
-    sleep 4
-    menuop
-  } else {
-echo "Restaurando..."
-cd /root/PainelDT
-rm -r prisma/database.db
-rm -r .env
-cd /root
-unzip painelbackup.zip
-cd painelbackup
-mv database.db /root/PainelDT/prisma
-mv .env /root/PainelDT
-cd /root
-rm -r painelbackup
-echo
-echo "Backup restaurado com sucesso!"
 cd
-menuop
 }
-}
+restaurarback
 }
 restaurarback() {
   clear
