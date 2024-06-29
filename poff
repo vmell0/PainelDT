@@ -1,6 +1,7 @@
 #!/bin/bash
 
 screen -r -S painel -X quit 
+screen -wipe
 echo
 echo "PainelDT off"
 echo
