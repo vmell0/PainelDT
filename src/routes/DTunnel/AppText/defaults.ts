@@ -289,7 +289,7 @@ const AppTextDefault = [
   },
   {
     label: 'LBL_CHECK_USER_MESSAGE',
-    text: '<i>📆| <b>Vence Em:</b> {expiration_date}<br>⏳| <b>Tempo:</b> {expiration_days} dia's<br>📲| <b>Limite:</b> {limit_connections}<br>✅| <b>Conectado:</b> {count_connections}<br><br><b>Renove sempre 1 dia antes do vencimento!</b></i>',
+    text: '<i>📆| <b>Vence Em:</b> {expiration_date}<br>⏳| <b>Tempo:</b> {expiration_days} dias<br>📲| <b>Limite:</b> {limit_connections}<br>✅| <b>Conectado:</b> {count_connections}<br><br><b>Renove sempre 1 dia antes do vencimento!</b></i>',
   },
   {
     label: 'LBL_NETWORK_STATUS',
