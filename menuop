@@ -44,6 +44,15 @@ reinstalarpainel() {
   clear
   read -p "Deseja reinstalar o painel? (s/n) " reins
   [[ $reins = @(s|S) ]] && {
+  {
+echo "Fazendo backcup..."
+cd /root/PainelDT
+rm -r painelbackup  
+mkdir painelbackup  
+cp prisma/database.db painelbackup
+cp .env painelbackup
+zip -r painelbackup.zip painelbackup
+mv painelbackup.zip /root  
 echo "Removendo..."
 poff
 rm -r /etc/systemd/system/paineldt.service
@@ -78,15 +87,6 @@ npm install
 npx prisma generate
 npx prisma migrate deploy
 cd /root
-echo "Fazendo backcup..."
-cd /root/PainelDT
-rm -r painelbackup
-mkdir painelbackup
-cp prisma/database.db painelbackup
-cp .env painelbackup
-zip -r painelbackup.zip painelbackup
-mv painelbackup.zip /root
-cd /root
 echo "Restaurando..."
 cd /root/PainelDT
 rm -r prisma/database.db
@@ -100,7 +100,7 @@ cd /root
 rm -r painelbackup
 echo
 echo "Backup restaurado com sucesso!"
-}
+}  
 restaurarback() {
   clear
   [[ ! -e /root/painelbackup.zip ]] && {
