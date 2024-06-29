@@ -90,6 +90,7 @@ menuop() {
     #statements
     clear
 	pon
+        screen -wipe
 	sudo systemctl enable paineldt.service && sudo systemctl start paineldt.service
 	echo ""
 	echo "Painel ligado com sucesso!"
@@ -100,6 +101,7 @@ menuop() {
 	clear
     echo "Reiniciando..."
     pon
+    screen -wipe
 	echo "Reiniciado com sucesso!"
     sleep 2
     menuop
@@ -107,6 +109,7 @@ menuop() {
     #statements
 	clear
 	poff
+        screen -wipe
 	sudo systemctl disable --now paineldt.service && sudo systemctl stop paineldt.service && sudo systemctl daemon-reload
 	echo ""
 	echo "Painel desligado com sucesso!"
