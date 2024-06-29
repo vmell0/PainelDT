@@ -4,8 +4,8 @@ fazerbackup() {
   clear
   echo "Fazendo backcup..."
   cd /root/PainelDT
-  rm -r painelbackup > /dev/null
-  mkdir painelbackup > /dev/null
+  #rm -r painelbackup > /dev/null
+  #mkdir painelbackup > /dev/null
   cp prisma/database.db painelbackup
   cp .env painelbackup
   zip -r painelbackup.zip painelbackup
