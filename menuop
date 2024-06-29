@@ -112,13 +112,13 @@ menuop() {
     #statements
     fazerbackup
     echo "Backup feito com sucesso!"
-    sleep 2
+    sleep 3
     menuop
   elif [[ $resp = "5" ]]; then
     #statements
     restaurarback
     echo "Backup restaurado com sucesso!"
-    sleep 2
+    sleep 3s
     menuop
   elif [[ $resp = "6" ]]; then
     #statements
