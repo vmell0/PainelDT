@@ -23,10 +23,10 @@ class ConfigImportModal {
                     </div>
                     <div class="d-flex gap-3">
                         <div class="w-100">
-                            <label class="form-label">ARQUIVO</label>
+                            <label class="form-label">ARQUIVO (config.json)</label>
                             <input type="file" class="form-control">
                         </div>
-                        <div class="w-100">
+                        <div hidden="hidden" class="w-100">
                             <label class="form-label">LINK</label>
                             <input type="text" class="form-control">
                         </div>

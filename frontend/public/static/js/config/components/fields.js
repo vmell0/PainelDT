@@ -330,7 +330,7 @@ export class ConfigUrlCheckUser extends TextFiled {
     constructor(url) {
         super()
         this._element.value = url
-        this._label.innerHTML = 'URL Check User'
+        this._label.innerHTML = 'CheckUser'
 
         this._btnCheckUrl = document.createElement('button');
         this._btnCheckUrl.type = 'button';
@@ -374,7 +374,6 @@ export class ConfigUrlCheckUser extends TextFiled {
         const group = document.createElement('div');
         group.classList.add('input-group')
         group.appendChild(this._element)
-        group.appendChild(this._btnCheckUrl)
 
         div.appendChild(group)
         return div

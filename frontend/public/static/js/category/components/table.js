@@ -13,7 +13,6 @@ class CategoryTable {
                     <th>
                         <input class="form-check form-check-input check-item" type="checkbox">
                     </th>
-                    <th>ID</th>
                     <th>NOME</th>
                     <th>ORDEM</th>
                     <th scope="col">COR</th>
@@ -66,7 +65,6 @@ class TableItem {
             <td>
                 <input class="form-check form-check-input check-item" type="checkbox" value="${this.category.id}">
             </td>
-            <td>${this.category.id}</td>
             <td>${this.category.name}</td>
             <td>${this.category.sorter}</td>
             <td>

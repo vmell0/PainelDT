@@ -20,7 +20,6 @@ export default class Table {
               <th scope="col">
                 <input class="form-check form-check-input check-item" type="checkbox">
               </th>
-              <th scope="col" class="border-0" placeholder="#">#</th>
               <th scope="col" class="border-0" placeholder="Nome">Nome</th>
               <th scope="col" class="border-0" placeholder="Categoria">Categoria</th>
               <th scope="col" class="border-0" placeholder="Ordem">Ordem</th>
@@ -91,7 +90,6 @@ export class TableItem {
         <td class="align-middle" scope="row">
           <input class="form-check form-check-input check-item" type="checkbox">
         </td>
-        <td class="align-middle">${id}</td>
         <td class="align-middle text-nowrap">${name}</td>
         <td class="align-middle">
           <div class="badge rounded-pill text-bg-dark">

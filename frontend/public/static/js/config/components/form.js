@@ -72,11 +72,13 @@ class ConfigFormSshDirect extends ConfigForm {
         this.payload = new ConfigPayload(config?.config_payload?.payload || '')
         this.server = new ConfigServer(config?.server?.host || '')
         this.serverPort = new ConfigPort(config?.server?.port || 80)
-        this.dns1 = new ConfigDns1(config?.dns_server?.dns1 || '8.8.8.8')
-        this.dns2 = new ConfigDns2(config?.dns_server?.dns2 || '8.8.4.4')
+        this.dns1 = new ConfigDns1(config?.dns_server?.dns1 || '1.1.1.1')
+        this.dns2 = new ConfigDns2(config?.dns_server?.dns2 || '1.0.0.1')
         this.username = new ConfigUsername(config?.auth?.username || '')
         this.password = new ConfigPassword(config?.auth?.password || '')
         this.udpPort = new ConfigUdpPort(config.udp_ports || 7300)
+        this.checkuser = new ConfigUrlCheckUser(config.url_check_user || 'https://gestor.cvpn.top/checkuser/dtunnel.php?user=')
+		
     }
 
     toConfig() {
@@ -128,11 +130,12 @@ class ConfigFormSslDirect extends ConfigForm {
         super(config, categories)
         this.sni = new ConfigSni(config?.config_payload?.sni || '')
         this.server = new ConfigServer(config?.server?.host || '')
-        this.serverPort = new ConfigPort(config?.server?.port || 80)
-        this.dns1 = new ConfigDns1(config?.dns_server?.dns1 || '8.8.8.8')
-        this.dns2 = new ConfigDns2(config?.dns_server?.dns2 || '8.8.4.4')
+        this.serverPort = new ConfigPort(config?.server?.port || 443)
+        this.dns1 = new ConfigDns1(config?.dns_server?.dns1 || '1.1.1.1')
+        this.dns2 = new ConfigDns2(config?.dns_server?.dns2 || '1.0.0.1')
         this.username = new ConfigUsername(config?.auth?.username || '')
         this.password = new ConfigPassword(config?.auth?.password || '')
+		this.checkuser = new ConfigUrlCheckUser(config.url_check_user || 'https://gestor.cvpn.top/checkuser/dtunnel.php?user=')
 
         this.tlsVersion = new ConfigTlsVersion(['TLSv1.3', 'TLSv1.2', 'TLSv1.1'])
         this.tlsVersion.setSelected(config.tls_version)
@@ -167,7 +170,8 @@ class ConfigFormSslProxy extends ConfigFormSslDirect {
         super(config, categories)
         this.payload = new ConfigPayload(config?.config_payload?.payload || '')
         this.proxy = new ConfigProxy(config?.proxy?.host || '')
-        this.proxyPort = new ConfigPort(config?.proxy?.port || 80)
+        this.proxyPort = new ConfigPort(config?.proxy?.port || 443)
+		this.checkuser = new ConfigUrlCheckUser(config.url_check_user || 'https://gestor.cvpn.top/checkuser/dtunnel.php?user=')
     }
 
     toConfig() {
@@ -194,10 +198,11 @@ class ConfigFormOpenVPN extends ConfigForm {
         this.openvpn = new ConfigOpenVPN(config.config_openvpn ?? '')
         this.proxy = new ConfigProxy(config?.proxy?.host || '')
         this.proxyPort = new ConfigPort(config?.proxy?.port || 80)
-        this.dns1 = new ConfigDns1(config?.dns_server?.dns1 || '8.8.8.8')
-        this.dns2 = new ConfigDns2(config?.dns_server?.dns2 || '8.8.8.8')
+        this.dns1 = new ConfigDns1(config?.dns_server?.dns1 || '1.1.1.1')
+        this.dns2 = new ConfigDns2(config?.dns_server?.dns2 || '1.0.0.1')
         this.username = new ConfigUsername(config?.auth?.username || '')
         this.password = new ConfigPassword(config?.auth?.password || '')
+		this.checkuser = new ConfigUrlCheckUser(config.url_check_user || 'https://gestor.cvpn.top/checkuser/dtunnel.php?user=')
     }
 
     toConfig() {
@@ -223,6 +228,7 @@ class ConfigFormOpenVPNProxy extends ConfigFormOpenVPN {
     constructor(config, categories) {
         super(config, categories)
         this.payload = new ConfigPayload(config?.config_payload?.payload || '')
+		this.checkuser = new ConfigUrlCheckUser(config.url_check_user || 'https://gestor.cvpn.top/checkuser/dtunnel.php?user=')
     }
 
     toConfig() {
@@ -244,6 +250,7 @@ class ConfigFormOpenVPNSsl extends ConfigFormOpenVPN {
         this.sni = new ConfigSni(config?.config_payload?.sni || '')
         this.tlsVersion = new ConfigTlsVersion(['TLSv1.3', 'TLSv1.2', 'TLSv1.1'])
         this.tlsVersion.setSelected(config.tls_version)
+		this.checkuser = new ConfigUrlCheckUser(config.url_check_user || 'https://gestor.cvpn.top/checkuser/dtunnel.php?user=')
     }
 
     toConfig() {
@@ -283,6 +290,7 @@ class ConfigFormV2ray extends ConfigForm {
         super(config, categories)
         this.v2ray = new ConfigV2ray(config.config_v2ray || '')
         this.uuid = new ConfigUuid(config?.auth?.v2ray_uuid || '')
+		this.checkuser = new ConfigUrlCheckUser(config.url_check_user || 'https://gestor.cvpn.top/checkuser/dtunnelv2ray.php?user=')
     }
 
     toConfig() {
